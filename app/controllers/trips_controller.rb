@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   before_action :authenticate!, only: [:create]
 
   def show
-    render json: current_trip
+    render json: current_trip.full
   end
 
   def create

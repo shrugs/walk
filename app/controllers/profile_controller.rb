@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
 
     render json: {
       profile: @profile,
-      trips: @profile.trips
+      trips: @profile.trips.map(&:sample)
     }
   end
 

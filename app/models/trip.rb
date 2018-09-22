@@ -24,6 +24,24 @@ class Trip < ApplicationRecord
     presence: true,
     uniqueness: true
 
+  def channel_id
+    "trip_#{handle}"
+  end
+
+  def sample
+    {
+      id: self.id,
+      name: self.name,
+      handle: self.handle,
+    }
+  end
+
+  def full
+    sample.merge({
+      entries: self.entries.map(&:full)
+    })
+  end
+
   private
 
     def assign_handle

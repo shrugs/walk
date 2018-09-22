@@ -9,7 +9,14 @@ class EntriesController < ApplicationController
       images: entry_params[:images] || []
     })
 
-    render json: entry
+    ActionCable.server.broadcast(
+      current_trip.channel_id,
+      {
+        entry: entry.full
+      }
+    )
+
+    render json: entry.full
   end
 
   private

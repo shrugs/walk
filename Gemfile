@@ -13,6 +13,8 @@ gem 'redis', '~> 4.0'
 gem 'base62-rb'
 gem 'geokit-rails'
 gem 'aws-sdk-s3', require: false
+gem 'administrate'
+gem 'administrate-field-active_storage'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
