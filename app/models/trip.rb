@@ -7,7 +7,7 @@ class Trip < ApplicationRecord
   before_validation :assign_handle, on: :create
 
   belongs_to :user
-  has_many :entries, dependent: :destroy
+  has_many :entries, -> { includes :location }, dependent: :destroy
 
   enum status: {
     active: 0,
@@ -33,6 +33,7 @@ class Trip < ApplicationRecord
       id: self.id,
       name: self.name,
       handle: self.handle,
+      status: self.status,
     }
   end
 

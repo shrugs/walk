@@ -8,6 +8,6 @@ class TripChannel < ApplicationCable::Channel
   end
 
   def current_trip
-    @trip ||= Trip.find_by!(user: current_profile, handle: params[:trip_handle])
+    @trip ||= Trip.find_by!(handle: params[:trip_handle])
   end
 end

@@ -12,6 +12,7 @@ class EntriesController < ApplicationController
     ActionCable.server.broadcast(
       current_trip.channel_id,
       {
+        trip_handle: entry.trip.handle,
         entry: entry.full
       }
     )
